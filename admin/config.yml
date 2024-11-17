@@ -1,19 +1,27 @@
 backend:
-  name: "github" # or any other backend like "gitlab", "database", etc.
-  branch: "main"  # Specify the branch name if using a git-based CMS.
+  name: git-gateway  # Use git-gateway for Netlify's Git-based backend (also works with Netlify Identity)
+  branch: main       # Your Git branch name (typically "main" or "master")
+
+media_folder: "static/media"  # Folder for storing uploaded media files
+public_folder: "/media"      # URL path for accessing media files
 
 collections:
-  - name: "posts"
-    label: "Blog Posts"
-    folder: "content/posts"
+  - name: "blog"  # The collection name (e.g., blog, posts, pages)
+    label: "Blog Posts"  # Human-readable name for the collection
+    folder: "content/blog"  # Folder where your blog post files are stored in the repo
+    create: true  # Allow creating new posts through the CMS
+    slug: "{{slug}}"  # Use the slug of the post for URLs
+    fields:  # The fields available in the CMS for each post
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "body", label: "Body", widget: "markdown" }
+      - { name: "author", label: "Author", widget: "string" }
+
+  - name: "pages"  # A collection for pages, if needed
+    label: "Pages"
+    folder: "content/pages"
     create: true
     slug: "{{slug}}"
     fields:
       - { name: "title", label: "Title", widget: "string" }
       - { name: "body", label: "Body", widget: "markdown" }
-
-media_folder: "static/media"  # Folder for media files.
-media_library:
-  name: "local"  # Type of media library (could be "local", "cloudinary", etc.)
-  label: "Local Media Library"
-  field: "image"  # Name of the field used for images/media.
