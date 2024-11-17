@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <h1>School Name</h1>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href='/notices'>Notice</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href='/contact'>Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Homepage Banner -->
+    <header id="home">
+        <div class="banner">
+            <img src="assets/4.jpg" alt="School Banner">
+        </div>
+    </header>
+
+    <!-- Notices Section -->
+    <section id="notice">
+        <h2>Latest Notices</h2>
+        <div class="notices">
+            <!-- Dynamic notices will be populated here -->
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>School Gallery</h2>
+        <div class="gallery-images">
+            <img src="1.png" alt="Image 1">
+            <img src="2.png" alt="Image 2">
+            <img src="3.png" alt="Image 3">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 School Name | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
