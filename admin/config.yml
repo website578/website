@@ -1,0 +1,17 @@
+backend:
+  name: git-gateway
+  branch: main  # Your main branch (usually "main" or "master")
+
+media_folder: "assets/images"  # Folder where media like images will be stored
+public_folder: "/images"  # Public URL to access the images
+
+collections:
+  - name: "notices"  # Collection name (this corresponds to notices)
+    label: "Notices"
+    folder: "notices"  # Folder where the notices are stored
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"  # Slug format for notices
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Content", name: "content", widget: "text" }
+      - { label: "Date", name: "date", widget: "datetime" }
