@@ -1,3 +1,17 @@
-settings:
-  site_name: "https://netlifyhgdht.netlify.app"
-  environment: "development"
+backend:
+  name: git-gateway
+  branch: main   # Or 'master' depending on your repository's branch
+
+media_folder: "assets/images"  # Folder for media (images, etc.)
+public_folder: "/images"       # Public URL for media
+
+collections:
+  - name: "notices"            # Collection name (notices)
+    label: "Notices"            # Label for collection in CMS
+    folder: "notices"           # Folder where markdown files are stored
+    create: true                # Allow creating new notices
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"  # Slug format for filenames
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Content", name: "content", widget: "markdown" }
