@@ -1,16 +1,16 @@
 backend:
-  name: git-gateway  # Authentication method (using GitHub login)
-  branch: main       # Set the branch (main or master)
+  name: git-gateway
+  branch: main   # Or 'master' depending on your repository's branch
 
-media_folder: "/"   # Media folder for image uploads
-public_folder: "/"        # Public path for the media
+media_folder: "assets/images"  # Folder for media (images, etc.)
+public_folder: "/images"       # Public URL for media
 
 collections:
-  - name: "notices"   # Collection name (for notices)
-    label: "Notices"   # Display name in CMS
-    folder: "notices"  # Folder where the markdown files are stored
-    create: true       # Allow creation of new notices
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"   # Slug format
+  - name: "notices"            # Collection name (notices)
+    label: "Notices"            # Label for collection in CMS
+    folder: "notices"           # Folder where markdown files are stored
+    create: true                # Allow creating new notices
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"  # Slug format for filenames
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
