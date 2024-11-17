@@ -1,17 +1,19 @@
 backend:
-  name: git-gateway
-  branch: main   # Or 'master' depending on your repository's branch
-
-media_folder: "assets/images"  # Folder for media (images, etc.)
-public_folder: "/images"       # Public URL for media
+  name: "github" # or any other backend like "gitlab", "database", etc.
+  branch: "main"  # Specify the branch name if using a git-based CMS.
 
 collections:
-  - name: "notices"            # Collection name (notices)
-    label: "Notices"            # Label for collection in CMS
-    folder: "notices"           # Folder where markdown files are stored
-    create: true                # Allow creating new notices
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"  # Slug format for filenames
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Content", name: "content", widget: "markdown" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "body", label: "Body", widget: "markdown" }
+
+media_folder: "static/media"  # Folder for media files.
+media_library:
+  name: "local"  # Type of media library (could be "local", "cloudinary", etc.)
+  label: "Local Media Library"
+  field: "image"  # Name of the field used for images/media.
